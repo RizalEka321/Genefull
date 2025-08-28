@@ -1,0 +1,141 @@
+:root {
+  --bg-popup-color: #ffffff;
+  --text-popup-color: #0b0b0b;
+  --sub-text-popup-color: #5b5b5b;
+  --success-popup-color: #00ac69;
+  --info-popup-color: #3366ff;
+  --danger-popup-color: #ff413a;
+  --warning-popup-color: #f4a100;
+}
+
+/* Popup */
+#popup {
+  position: fixed;
+  top: 75px;
+  right: 20px;
+  width: 310px;
+  background: var(--bg-popup-color);
+  color: var(--text-popup-color);
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(-20px);
+  font-family: "Roboto", sans-serif;
+}
+
+#popup.popup-show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.popup-content {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+.popup-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.popup-desc h2 {
+  font-size: 0.9rem;
+  margin: 0;
+  padding: 0;
+}
+
+.popup-desc p {
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0;
+}
+
+.popup-loading {
+  margin-top: 10px;
+  height: 2px;
+  background-color: transparent;
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+.popup-loading.success {
+  background-color: var(--success-popup-color);
+}
+
+.popup-loading.info {
+  background-color: var(--info-popup-color);
+}
+
+.popup-loading.error {
+  background-color: var(--danger-popup-color);
+}
+
+.popup-show .popup-loading {
+  width: 100%;
+  animation: loadingBar 3s linear forwards;
+}
+
+#confirm-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+#confirm-popup.popup-show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#confirm-popup .popup-content {
+  background: #fff;
+  padding: 40px;
+  width: 350px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+#confirm-popup.popup-show .popup-content {
+  transform: scale(1);
+}
+
+#confirm-popup .popup-content img {
+  width: 90px;
+  height: 90px;
+}
+
+#confirm-popup .popup-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#confirm-popup #confirm-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
