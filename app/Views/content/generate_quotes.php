@@ -21,11 +21,13 @@
     e.preventDefault();
     $.ajax({
       type: "POST",
-      url: "<?= base_url(); ?>generate-video-motivation",
-      data: "data",
+      url: "<?= base_url(); ?>generate-video-quotes",
+      data: {
+        q: 1
+      },
       dataType: "JSON",
       success: function(data) {
-
+        console.log(data);
       }
     });
   });

@@ -1199,19 +1199,19 @@ thead tr > th {
 
 .page-item:not(:first-child) .page-link {
   border-radius: 10px;
-  margin-left: 3px;
-  margin-right: 3px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 .page-item:first-child .page-link {
-  margin-right: 3px;
+  margin-right: 2px;
   border-radius: 10px;
   padding: 1px 0 0 0;
 }
 
 .page-item:last-child .page-link {
   border-radius: 10px;
-  margin-left: 3px;
+  margin-left: 2px;
 }
 
 .dataTables_paginate {
