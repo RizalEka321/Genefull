@@ -19,7 +19,6 @@ function showPopup(icon, title, message) {
   }
 
   const iconSrc = "assets/img/alert/" + icon + ".png";
-  console.log(iconSrc);
   popupIcon.src = iconSrc;
 
   popupTitle.textContent = title;

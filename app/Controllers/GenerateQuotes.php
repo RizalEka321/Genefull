@@ -24,24 +24,19 @@ class GenerateQuotes extends BaseController
 
   public function generate()
   {
-    // $this->get_video();
     $quotes = $this->get_quote();
-    $photo = $this->get_photo();
-    $result = $this->edit_photo($photo, $quotes, "Seseorang");
-    return $this->response->setJSON([
-      'status' => true,
-      'hasil' => $result
-    ]);
-    // if ($quotes != "gagal") {
-    //   return $this->response->setJSON([
-    //     'status' => true,
-    //     'quotes' => $quotes
-    //   ]);
-    // } else {
-    //   return $this->response->setJSON([
-    //     'status' => false,
-    //   ]);
-    // }
+    if ($quotes != "gagal") {
+      $photo = $this->get_photo();
+      $result = $this->edit_photo_video($photo, $quotes, "Seseorang");
+      return $this->response->setJSON([
+        'status' => true,
+        'hasil' => $result
+      ]);
+    } else {
+      return $this->response->setJSON([
+        'status' => false,
+      ]);
+    }
   }
 
   private function get_quote()
@@ -246,17 +241,9 @@ class GenerateQuotes extends BaseController
     fclose($fp);
 
     return $photoUrl;
-
-    // return [
-    //   'status' => 'success',
-    //   'searchQuery' => $searchQuery,
-    //   'page' => $page,
-    //   'photoUrl' => $photoUrl,
-    //   'savedAs' => $inputPath
-    // ];
   }
 
-  private function edit_photo($photoUrl, $quotes, $author)
+  private function edit_photo_video($photoUrl, $quotes, $author)
   {
     // Ukuran TikTok (1080 x 1920)
     $width = 1080;
